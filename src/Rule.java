@@ -69,4 +69,28 @@ public class Rule {
 		return match;
 	}
 	
+	public String apply(String word) {
+		String application = "";
+		
+		if(doesMatch(word)) {
+			String leftSuffix = "";
+			for(Clause c : _leftClauseSet) {
+				if(c.isSuffix()) {
+					leftSuffix = c.getValue().substring(1);
+				}
+			}
+			
+			String rightSuffix = "";
+			for(Clause c : _rightClauseSet) {
+				if(c.isSuffix()) {
+					rightSuffix = c.getValue().substring(1);
+				}
+			}
+			
+			application = word.substring(0,word.length() - leftSuffix.length()) + rightSuffix;
+		}
+		
+		return application;
+	}
+	
 }

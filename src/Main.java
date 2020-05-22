@@ -5,10 +5,18 @@ public class Main {
 //		Clause clauseTest = new Clause("*er");
 //		
 //		System.out.println(clauseTest.doesMatch("manger"));
+//		
+//		Rule ruleTest = new Rule("*er => *eur");
+//		
+//		System.out.println(ruleTest.apply("manger"));
 		
-		Rule ruleTest = new Rule("*er => *eur");
+		DerivationEngine engine = new DerivationEngine();
 		
-		System.out.println(ruleTest.doesMatch("manger"));
+		engine.loadRules("rules.txt");
+		
+		engine.run("manger");
+		
+		System.out.println(engine);
 	}
 
 }
