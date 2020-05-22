@@ -33,7 +33,7 @@ public class Clause {
 	public boolean doesMatch(String word) {
 		boolean match = false;
 		
-		if(isSuffix()) {
+		if(isSuffix() && word.length() >= _value.substring(1).length()) {
 			String clauseSuffix = _value.substring(1);
 			String wordSuffix = word.substring(word.length() - clauseSuffix.length());
 			
@@ -42,6 +42,9 @@ public class Clause {
 		
 		return match;
 	}
+	
+	
+	
 	
 	
 }
