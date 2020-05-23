@@ -45,7 +45,7 @@
 *ale => *ales
 *al => *aux
 *ant => *amment 
-*tif  => *tivité
+*tif  => *tivitÃ©
 *ant => *ance
 *ante => *ance
 

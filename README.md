@@ -90,6 +90,8 @@ Par exemple, *dérivations[nager]* = <nageur,nageuse,nageoire, ...>
 
 *loadRules(path : string)* : Cette méthode charge le *_ruleSet* à partir du fichier spécifié en paramètre.
 
+*exists(word: string) : Cette méthode utilise RequeterRezo afin de vérifier que le mot donné en argument existe bien. Elle renvoie true si le mot existe, false sinon.
+
 *run(word : string)* : Calcule les dérivations du mot spécifié. Les dérivations sont stoquées dans *_dérivations*
 
 
@@ -98,5 +100,8 @@ Par exemple, *dérivations[nager]* = <nageur,nageuse,nageoire, ...>
 
 
 ### TODO
-* vérifier que les dérivations générées existent bien
-* stoquer les dérivations dans un fichier
+
+* ~~possibilité d'avoir la partie gauche vide~~
+* ~~vérifier que les dérivations générées existent bien~~
+* prendre en compte la nature des mots
+* enregistrer les dérivations dans un fichier
