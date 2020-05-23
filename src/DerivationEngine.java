@@ -101,10 +101,10 @@ public class DerivationEngine {
 	public String toString() {
 		String display = "";
 		
-		display += "----Règles----\n";
-		for(Rule r : _ruleSet) {
-			display += r.toString() + "\n";
-		}
+//		display += "----Règles----\n";
+//		for(Rule r : _ruleSet) {
+//			display += r.toString() + "\n";
+//		}
 		
 		display += "\n----Dérivations----\n";
 		for(String k : _derivations.keySet()) {

@@ -35,7 +35,9 @@ Ci-dessous, est donnée une explication des comportements importants des deux cl
 -----
 
 ### -- Clause --
+
 **Attribut**
+
 *_value* : contient la valeur de la clause (par exemple, "*er")
 
 **Méthodes**
