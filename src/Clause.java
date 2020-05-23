@@ -69,8 +69,8 @@ public class Clause {
 						nature = voisin.getNomDestination();
 					}
 				}
-				String natureFirstLetter = nature.substring(0, 1);
-				match = natureFirstLetter.equals(_value.split("==")[1].strip());
+				String natureFirstLetter = nature.substring(0, 1).toLowerCase();
+				match = natureFirstLetter.equals(_value.split("==")[1].strip().toLowerCase());
 			}
 
 

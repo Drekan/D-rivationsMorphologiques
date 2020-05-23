@@ -12,40 +12,76 @@
 *er => *oir
 *er => *age
 
-*er & pos == V => *e
-*er => *ant
-*ner => *nier
-*er => *ette
+*er & r_pos == V => *e
+*er& r_pos == V => *ant
+*ner & r_pos == V => *nier
+*er & r_pos == V => *ette
 
 *uire => *uction
 *uire => *ucteur
 *uire => *uctrice
-*ister => *istance
-*er => *able
-*ger => *gement
-*ger  => *geur
-*ner  => *naison
-*quer  => *cation
-*ner  => *naison
-*ser  => *sation
-*quer  => *quage
-*ter => *tement
-*dir  => *d
-*lir  => *lissage
-*er  => *ant
-*ller  => *l
-*uer  => *cation
-*er => *ible
-*ier => *eraie
-*er => *ail
-*er  => *aille
-*er => *ation
-*eur  => *euse
-*er  => *ance
-*ale => *ales
-*al => *aux
-*ant => *amment 
-*tif  => *tivité
-*ant => *ance
-*ante => *ance
+*ister & r_pos == V => *istance
+*er & r_pos == V=> *able
+*ger & r_pos == V=> *gement
+*ger & r_pos == V => *geur
+*ner & r_pos == V => *naison
+*quer & r_pos == V => *cation
+*ner & r_pos == V => *naison
+*ser & r_pos == V => *sation
+*quer & r_pos == V => *quage
+*ter& r_pos == V => *tement
+*dir & r_pos == V => *d
+*lir & r_pos == V => *lissage
+*er & r_pos == V => *ant
+*ller & r_pos == V => *l
+*uer & r_pos == V => *cation
+
+ r_pos == N => *able
+
+*er & r_pos == V => *ible
+
+r_pos == N => *age
+
+*ier & r_pos == N => *eraie
+
+*er & r_pos == V => *ail
+*er & r_pos == V => *aille
+
+r_pos == A => *ante
+
+r_pos == N => *aison
+
+r_pos == V => *ateur
+
+r_pos == V & *er=> *ation
+
+r_pos == N => *isme
+r_pos == N => *iste
+r_pos == N => *ir
+
+r_pos == V => *iteur
+
+r_pos == N & *eur => *ir
+r_pos == N & *er => *ir
+r_pos == N => *aire
+r_pos == N => *iaire
+r_pos == N => *ale
+r_pos == N => *al
+
+r_pos == N & *ale => *ales
+r_pos == N & *al => *aux
+
+r_pos == N => *ale
+r_pos == N => *elle
+r_pos == N => *acé
+r_pos == N => *an
+r_pos == N => *ane
+
+r_pos == A & *ante => *amment
+r_pos == A & *ante => *amment
+
+r_pos == N => *ain
+r_pos == N => *aine
+r_pos == N => *ard
+r_pos == N => *arde
 
