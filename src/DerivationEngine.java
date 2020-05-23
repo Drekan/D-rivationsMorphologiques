@@ -3,6 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import requeterrezo.*;
+
 
 public class DerivationEngine {
 	private ArrayList<Rule> _ruleSet;
@@ -60,11 +62,19 @@ public class DerivationEngine {
 		}
 	}
 	
+	public boolean exists(String word) {
+		RequeterRezo rezo = new RequeterRezoDump();
+		Resultat resultatRequete = rezo.requete(word);
+		Mot mot = resultatRequete.getMot();
+		
+		return mot != null;
+	}
+	
 	public void run(String word) {
 		if(!_ruleSet.isEmpty()) {
 			for(Rule rule : _ruleSet) {
 				String applicationResult = rule.apply(word);
-				if(!applicationResult.isBlank()) {
+				if(!applicationResult.isBlank() && exists(applicationResult)) {
 					
 					if(!_derivations.containsKey(word)) {
 						_derivations.put(word, new ArrayList<>());
