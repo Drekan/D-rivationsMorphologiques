@@ -28,7 +28,7 @@ Les règles peuvent donc s'écrire comme deux ensembles de clauses. On peut voir
 Dans un deuxième temps, seront prisent en compte les clauses nous renseignant sur la nature du mot (Nom, Verbe, Adjectif, etc... )
 
 Voici le diagramme UML représentant les règles et les clauses:
-![Derivation-Morphologique-noyau](https://i.imgur.com/b1z0MnN.png)
+![Derivation-Morphologique-noyau](https://i.imgur.com/YuSoxpy.png)
 
 Ci-dessous, est donnée une explication des comportements importants des deux classes.
 
@@ -57,9 +57,12 @@ Par exemple,
 *_rightClauseSet* : ensemble des conclusions
 
 **Méthodes**
-*Rule(string)*  : Constructeur. Il prend en paramètre une règle du type "*er ⇒ *age" et initialise les ensembles de clauses correspondant.
+
+*Rule(string)*  : Constructeur. Il prend en paramètre une règle du type "*er => *age" et initialise les ensembles de clauses correspondant.
 
 *doesMatch(string)* : prend un mot en paramètre, et renvoie true si la règle matche. Pour qu'un match se produise, il faut que chaque clause des prémices matche avec le mot.	
+
+*apply(string)* : prend un mot en paramètre, et renvoie le mot correspondant à l'application de la règle (si la règle matche avec le mot) . Par exemple, soit la règle **r1** = " *er => *age", alors **r1**.apply("trier") renvoie "triage".
 
 
 --------
@@ -68,7 +71,7 @@ Les règles ont maintenant une représentation, il ne nous manque plus qu'à dé
 
 Voici l'UML de cette classe : 
 
-![Derivation-Morphologique-noyau](https://i.ibb.co/d7sZcnz/UML-Derivation-Morphologique-engine.png)
+![Derivation-Morphologique-engine](https://i.imgur.com/btkTbAr.png)
 
 
 -----
@@ -95,4 +98,5 @@ Par exemple, *dérivations[nager]* = <nageur,nageuse,nageoire, ...>
 
 
 ### TODO
+* vérifier que les dérivations générées existent bien
 * stoquer les dérivations dans un fichier

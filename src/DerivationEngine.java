@@ -65,6 +65,12 @@ public class DerivationEngine {
 		}
 	}
 	
+	public void run(ArrayList<String> words) {
+		for(String word : words) {
+			run(word);
+		}
+	}
+	
 	public void clear() {
 		clearRules();
 		clearDerivations();
