@@ -28,7 +28,7 @@ Les règles peuvent donc s'écrire comme deux ensembles de clauses. On peut voir
 Dans un deuxième temps, seront prisent en compte les clauses nous renseignant sur la nature du mot (Nom, Verbe, Adjectif, etc... )
 
 Voici le diagramme UML représentant les règles et les clauses:
-![Derivation-Morphologique-noyau](https://i.imgur.com/YuSoxpy.png)
+![Derivation-Morphologique-noyau](https://i.imgur.com/WLM8SCa.png)
 
 Ci-dessous, est donnée une explication des comportements importants des deux classes.
 
@@ -41,6 +41,8 @@ Ci-dessous, est donnée une explication des comportements importants des deux cl
 **Méthodes**
 
 *isSuffixe()* : renvoie vrai si la clause est de type suffixe.
+
+*isNatureConstraint()* : renvoie vrai si la clause est de type "contrainte sur la nature grammaticale". Exemple : r_pos == V signifie que le terme doit être un verbe.
 
 *doesMatch(string)* : étant donné un mot, renvoie vrai si ce mot peut satisfaire la clause. 
 Par exemple, 
@@ -71,7 +73,7 @@ Les règles ont maintenant une représentation, il ne nous manque plus qu'à dé
 
 Voici l'UML de cette classe : 
 
-![Derivation-Morphologique-engine](https://i.imgur.com/btkTbAr.png)
+![Derivation-Morphologique-engine](https://i.imgur.com/6XY5WX4.png)
 
 
 -----
@@ -90,7 +92,7 @@ Par exemple, *dérivations[nager]* = <nageur,nageuse,nageoire, ...>
 
 *loadRules(path : string)* : Cette méthode charge le *_ruleSet* à partir du fichier spécifié en paramètre.
 
-*exists(word: string) : Cette méthode utilise RequeterRezo afin de vérifier que le mot donné en argument existe bien. Elle renvoie true si le mot existe, false sinon.
+*exists(word: string)* : Cette méthode utilise RequeterRezo afin de vérifier que le mot donné en argument existe bien. Elle renvoie true si le mot existe, false sinon.
 
 *run(word : string)* : Calcule les dérivations du mot spécifié. Les dérivations sont stoquées dans *_dérivations*
 
@@ -103,5 +105,8 @@ Par exemple, *dérivations[nager]* = <nageur,nageuse,nageoire, ...>
 
 * ~~possibilité d'avoir la partie gauche vide~~
 * ~~vérifier que les dérivations générées existent bien~~
-* prendre en compte la nature des mots
+* ~~prendre en compte la nature des mots~~
+* Optimisation du nombre de requêtes à jdm (nature des mots)
+* prise en compte des adv
+* demander des mots à l'utilisateur
 * enregistrer les dérivations dans un fichier
