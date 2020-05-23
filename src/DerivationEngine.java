@@ -13,6 +13,13 @@ public class DerivationEngine {
 		_ruleSet = new ArrayList<>();
 		_derivations = new HashMap<>();
 	}
+	
+	public DerivationEngine(String path) {
+		_ruleSet = new ArrayList<>();
+		_derivations = new HashMap<>();
+		
+		loadRules(path);
+	}
 
 	public int nbRules() {
 		return _ruleSet.size();
@@ -40,7 +47,10 @@ public class DerivationEngine {
 			try {
 				Scanner reader = new Scanner(ruleFile);
 				while (reader.hasNextLine()) {
-					_ruleSet.add(new Rule(reader.nextLine()));
+					String rule = reader.nextLine();
+					if(!rule.isBlank()) {
+						_ruleSet.add(new Rule(rule));
+					}
 				}
 				reader.close();
 			} catch (FileNotFoundException e) {
@@ -55,11 +65,14 @@ public class DerivationEngine {
 			for(Rule rule : _ruleSet) {
 				String applicationResult = rule.apply(word);
 				if(!applicationResult.isBlank()) {
+					
 					if(!_derivations.containsKey(word)) {
 						_derivations.put(word, new ArrayList<>());
 					}
 					
-					_derivations.get(word).add(applicationResult);
+					if(!_derivations.get(word).contains(applicationResult)) {
+						_derivations.get(word).add(applicationResult);
+					}
 				}
 			}
 		}

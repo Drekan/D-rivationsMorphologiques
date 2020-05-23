@@ -1,0 +1,51 @@
+*er => *eur
+*er => *euse
+*er => *age
+
+*er => *ement
+
+*ger => *geoire
+*ger => *goire
+
+*er => *oire
+
+*er => *oir
+*er => *age
+
+*er => *e
+*er => *ant
+*ner => *nier
+*er => *ette
+
+*uire => *uction
+*uire => *ucteur
+*uire => *uctrice
+*ister => *istance
+*er => *able
+*ger => *gement
+*ger  => *geur
+*ner  => *naison
+*quer  => *cation
+*ner  => *naison
+*ser  => *sation
+*quer  => *quage
+*ter => *tement
+*dir  => *d
+*lir  => *lissage
+*er  => *ant
+*ller  => *l
+*uer  => *cation
+*er => *ible
+*ier => *eraie
+*er => *ail
+*er  => *aille
+*er => *ation
+*eur  => *euse
+*er  => *ance
+*ale => *ales
+*al => *aux
+*ant => *amment 
+*tif  => *tivité
+*ant => *ance
+*ante => *ance
+
