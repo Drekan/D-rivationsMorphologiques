@@ -66,7 +66,6 @@ public class DerivationEngine {
 		RequeterRezo rezo = new RequeterRezoDump();
 		Resultat resultatRequete = rezo.requete(word);
 		Mot mot = resultatRequete.getMot();
-		
 		return mot != null;
 	}
 	

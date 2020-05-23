@@ -12,7 +12,7 @@
 *er => *oir
 *er => *age
 
-*er => *e
+*er & pos == V => *e
 *er => *ant
 *ner => *nier
 *er => *ette
@@ -45,7 +45,7 @@
 *ale => *ales
 *al => *aux
 *ant => *amment 
-*tif  => *tivitÃ©
+*tif  => *tivité
 *ant => *ance
 *ante => *ance
 
