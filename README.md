@@ -2,14 +2,13 @@
 # HMIN230 - Dérivations morphologiques
 **M1** DECOL
 **SEGURA** Bastien
+
 ## Sommaire
 
 * 1. Architecture
-* 2. blablabla
+* 2. Exemple d'utilisation
 
-
-
-## 1. Architecture
+## 1.  Architecture
 Nous avons des schémas de transformation du type :
 
 	*er ⇒ *age		//monter   ->   montage
@@ -102,13 +101,13 @@ Par exemple, *dérivations[nager]* = <nageur,nageuse,nageoire, ...>
 
 ------------
 
+## 2. Exemple d'utilisation
 
-### TODO
+Le fonctionnement interne de l'engine est totalement opaque pour l'utilisateur : il n'a pas besoin de le connaître.
 
-* ~~possibilité d'avoir la partie gauche vide~~
-* ~~vérifier que les dérivations générées existent bien~~
-* ~~prendre en compte la nature des mots~~
-* Optimisation du nombre de requêtes à jdm (nature des mots)
-* prise en compte des adv
-* demander des mots à l'utilisateur
-* enregistrer les dérivations dans un fichier
+Lorsque le programme est executé, les mots à dériver sont demandés à l'utilisateur (en bleu dans la capture ci-dessous). Ensuite, l'engine s'occupe de générer les dérivations en s'appuyant sur JDM pour savoir si la dérivation issue d'une règle correspond bien à un mot de la langue française.
+
+![ExempleUtilisation](https://i.imgur.com/t85IKnK.png)
+
+Toutes les dérivations sont ensuite affichées dans la console.
+
