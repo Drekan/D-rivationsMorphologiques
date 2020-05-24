@@ -15,11 +15,11 @@ public class DerivationEngine {
 		_ruleSet = new ArrayList<>();
 		_derivations = new HashMap<>();
 	}
-	
+
 	public DerivationEngine(String path) {
 		_ruleSet = new ArrayList<>();
 		_derivations = new HashMap<>();
-		
+
 		loadRules(path);
 	}
 
@@ -61,56 +61,81 @@ public class DerivationEngine {
 
 		}
 	}
-	
+
 	public boolean exists(String word) {
 		RequeterRezo rezo = new RequeterRezoDump();
 		Resultat resultatRequete = rezo.requete(word);
 		Mot mot = resultatRequete.getMot();
 		return mot != null;
 	}
-	
+
 	public void run(String word) {
+		System.out.println();
 		if(!_ruleSet.isEmpty()) {
-			for(Rule rule : _ruleSet) {
-				String applicationResult = rule.apply(word);
-				if(!applicationResult.isBlank() && exists(applicationResult)) {
-					
-					if(!_derivations.containsKey(word)) {
-						_derivations.put(word, new ArrayList<>());
+			RequeterRezo rezo = new RequeterRezoDump();
+			System.out.println("-requête sur JDM pour le mot <" + word+">");
+			Resultat resultatRequete = rezo.requete(word);
+			Mot mot = resultatRequete.getMot();
+			
+			String natureFirstLetter;
+			if(mot != null) {
+				ArrayList<Relation> voisins = mot.getRelationsSortantesTypees("r_pos");
+
+				int poidsMax = 0;
+				String nature = "";
+				for(Relation voisin : voisins) {
+					if(voisin.getPoids() > poidsMax) {
+						poidsMax = voisin.getPoids();
+						nature = voisin.getNomDestination();
 					}
-					
-					if(!_derivations.get(word).contains(applicationResult)) {
-						_derivations.get(word).add(applicationResult);
+				}
+				
+				natureFirstLetter = nature.substring(0, 1).toLowerCase();
+
+				for(Rule rule : _ruleSet) {
+
+					String applicationResult = rule.apply(word,natureFirstLetter);
+
+					if(!applicationResult.isBlank() && exists(applicationResult)) {
+
+						if(!_derivations.containsKey(word)) {
+							_derivations.put(word, new ArrayList<>());
+						}
+
+						if(!_derivations.get(word).contains(applicationResult)) {
+							_derivations.get(word).add(applicationResult);
+						}
 					}
 				}
 			}
+
 		}
 	}
-	
+
 	public void run(ArrayList<String> words) {
 		for(String word : words) {
 			run(word);
 		}
 	}
-	
+
 	public void clear() {
 		clearRules();
 		clearDerivations();
 	}
-	
+
 	public String toString() {
 		String display = "";
-		
-//		display += "----Règles----\n";
-//		for(Rule r : _ruleSet) {
-//			display += r.toString() + "\n";
-//		}
-		
+
+		//		display += "----Règles----\n";
+		//		for(Rule r : _ruleSet) {
+		//			display += r.toString() + "\n";
+		//		}
+
 		display += "\n----Dérivations----\n";
 		for(String k : _derivations.keySet()) {
 			display += k + " => " + _derivations.get(k) + "\n";
 		}
-		
+
 		return display;
 	}
 }

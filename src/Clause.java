@@ -42,7 +42,7 @@ public class Clause {
 	}
 	
 	
-	public boolean doesMatch(String word) {
+	public boolean doesMatch(String word,String nature) {
 		boolean match = _value.isBlank();
 		
 		if(isSuffix() && word.length() >= _value.substring(1).length()) {
@@ -53,27 +53,8 @@ public class Clause {
 		}
 		
 		if(isNatureConstraint()) {
-			
-			RequeterRezo rezo = new RequeterRezoDump();
-			Resultat resultatRequete = rezo.requete(word);
-			Mot mot = resultatRequete.getMot();
-			
-			if(mot != null) {
-				ArrayList<Relation> voisins = mot.getRelationsSortantesTypees("r_pos");
+				match = nature.equals(_value.split("==")[1].strip().toLowerCase());
 				
-				int poidsMax = 0;
-				String nature = "";
-				for(Relation voisin : voisins) {
-					if(voisin.getPoids() > poidsMax) {
-						poidsMax = voisin.getPoids();
-						nature = voisin.getNomDestination();
-					}
-				}
-				String natureFirstLetter = nature.substring(0, 1).toLowerCase();
-				match = natureFirstLetter.equals(_value.split("==")[1].strip().toLowerCase());
-			}
-
-
 		}
 
 		return match;

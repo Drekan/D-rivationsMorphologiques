@@ -9,7 +9,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Veuillez entrer les mots à dériver, tous séparés d'un ';'.");
-		System.out.println("Exemple : manger;papillon;tartine;océan  (Les espaces ne sont pas importants)");
+		System.out.println("Exemple : manger;papillon;calculer;océan  (Les espaces ne sont pas importants)");
 		System.out.print("$ ");
 		
 		String mots = sc.nextLine();

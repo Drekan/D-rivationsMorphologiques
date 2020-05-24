@@ -1,3 +1,8 @@
+r_pos == N & *e => *euse
+r_pos == N & *e => *eur
+r_pos == N & *e => *ant
+r_pos == N & *e => *able
+
 *er => *eur
 *er => *euse
 *er => *age

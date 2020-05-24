@@ -57,22 +57,22 @@ public class Rule {
 		return ruleString;
 	}
 	
-	public boolean doesMatch(String word) {
+	public boolean doesMatch(String word,String nature) {
 		boolean match = !_leftClauseSet.isEmpty();
 		
 		for(Clause c : _leftClauseSet) {
-			if(!c.doesMatch(word)) {
+			if(!c.doesMatch(word,nature)) {
 				match = false;
 			}
 		}
-		
+
 		return match;
 	}
 	
-	public String apply(String word) {
+	public String apply(String word, String nature) {
 		String application = "";
 		
-		if(doesMatch(word)) {
+		if(doesMatch(word,nature)) {
 			String leftSuffix = "";
 			for(Clause c : _leftClauseSet) {
 				if(c.isSuffix()) {
@@ -88,6 +88,7 @@ public class Rule {
 			}
 			
 			application = word.substring(0,word.length() - leftSuffix.length()) + rightSuffix;
+			//System.out.println("application : " + application);
 		}
 		
 		return application;
